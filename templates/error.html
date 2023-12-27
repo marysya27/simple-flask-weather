@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Error
+{% endblock %}
+{% block content %}
+<div class="error">
+    <span>City was not found</span>
+    <span>Try again</span>
+    <!-- <br> -->
+    <a href="{{ url_for('index')}}">Main page</a>
+</div>
+{% endblock %}

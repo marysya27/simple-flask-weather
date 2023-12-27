@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+index
+{% endblock %}
+{% block content %}
+<div class="index-img" >
+    <span>Flask Weather</span>
+    <span>Weather forecasts</span>
+</div>
+    <div class="index">
+        <form action="{{ url_for('weather') }}" method="post">
+            <div class="index-form">
+                <input class="index-input" placeholder='Search city' type="text" name="city" required>
+                <span><button class="index-button" type="submit">Search</button></span>
+            </div>
+        </form>
+
+        <div class="index-inform">
+            <span class="city-name">{{ info_for_city.city_name }}, {{ info_for_city.country}}</span>
+            <img class="main-img img-in-index" src="{{ info_for_city.src }}" alt="">
+            <br><span class="main-temp">{{ info_for_city.temperature }}°C, {{ info_for_city.description }}</span>
+            <br><span class="main-feels-like">feels like {{ info_for_city.feels_like }}°C</span>
+            <div class="in-index secondary-info">
+                <span>wind: {{ info_for_city.speed_wind }}m/s</span>
+                <span>pressure: {{ info_for_city.pressure }}hPa</span>
+                <span>sunrise: {{ info_for_city.sunrise }}</span>
+                <span>humidity: {{ info_for_city.humidity }}%</span>
+                <span>sunset: {{ info_for_city.sunset }}</span>
+                <span>visibility: {{ info_for_city.visibility }}k</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
